@@ -1,40 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Next.js Rental Listings Application
 
-## Getting Started
+## Overview
+This Next.js application provides a user interface for browsing and viewing property rental listings. It features pagination, detailed listing views, responsive design, and optimized data fetching.
 
-First, run the development server:
+## Key Features
+- **Listing Browser**: View all listings with pagination, sorted by rating  
+- **Detailed Listing View**: Click on any listing to see full details  
+- **About Page**: Information about the developer with a featured listing  
+- **Responsive Design**: Works well on both desktop and mobile devices  
+- **Dynamic Routing**: Individual pages for each listing  
+- **Server-Side Rendering**: Optimized content loading with Next.js  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Technical Implementation
+The application is built using **Next.js** with **React Bootstrap** for UI components. It uses the following key technologies:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js**: For server-side rendering and routing  
+- **React Bootstrap**: For responsive UI components  
+- **SWR**: For efficient data fetching  
+- **CSS Modules**: For component-scoped styling  
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## API Integration
+The application connects to a **[listings API](https://listings-api-roshis-rai.vercel.app/)** with the following endpoints:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- `GET /api/listings` - Retrieves paginated listings  
+- `GET /api/listings/:id` - Retrieves details for a specific listing  
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Components
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Layout**
+- Provides consistent page structure with navigation  
 
-## Learn More
+### **MainNav**
+- Navigation bar with links to main sections  
 
-To learn more about Next.js, take a look at the following resources:
+### **PageHeader**
+- Displays page titles with consistent styling  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### **ListingDetails**
+Renders comprehensive information about a listing, including:  
+- Property image with fallback  
+- Overview description  
+- Price, room type, and bed information  
+- Ratings and reviews  
+- Link to detailed view  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages
 
-## Deploy on Vercel
+### **Home (`index.js`)**
+- Paginated view of all listings  
+- Accordion display of listing information  
+- Alert system for pagination boundaries  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **About (`about.js`)**
+- Information about the developer  
+- Featured listing using static generation (`getStaticProps`)  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+### **Listing Details (`listing/[id].js`)**
+- Dynamic route for individual listing details  
+- Complete information about a specific property  
+
+---
+
+This project was created as **Assignment 3** for the **WEB 422** course at **Seneca College**.
